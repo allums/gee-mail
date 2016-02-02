@@ -2,17 +2,44 @@
 	<head>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
-    <script>
-      window.onload = function(){
-        // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
-        // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
-      };
-    </script>
+		<script>
+		window.onload = function(){
+		// ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE.
+		// We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
+		var containerElement = document.getElementById("main");
+
+
+		
+		for (var i = 0; i < subject.length; i++) {
+		var theSubject = document.createElement("div");
+		theSubject.className = "subj";
+		theSubject.innerHTML = subject[i];
+		containerElement.appendChild(theSubject);
+		}
+
+		for (var j = 0; j < sender.length; j++) {
+			var theSender = document.createElement("div");
+			theSender.className = "send";
+			theSender.innerHTML = sender[j];
+			containerElement.appendChild(theSender);
+		}
+
+		for (var y = 0; y < body.length; y++) {
+			var theBody = document.createElement("div");
+			theBody.className = "bod";
+			theBody.innerHTML = body[y];
+			containerElement.appendChild(theBody);
+		}
+
+		
+
+
+		
+		};
+		</script>
 	</head>
 	<body>
 		<div class="container" id="main">
-			Build Me!
 		</div>
 	</body>
 </html>
