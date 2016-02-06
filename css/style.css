@@ -1,12 +1,22 @@
-.container {
-	display: 
+#thedate {
+float: left;
+width: 10%;
 }
 
-.subj {
-	text-align: center;
 
+
+#person {
+	font-weight: 900;
+	width: 15%;
+	float: left;
 }
 
-.send {
-	
+#firstline {
+	width: 15%;
+	float: left;
+}
+
+#descrip {
+	width: 55%;
+	float: right;
 }

@@ -7,39 +7,50 @@
 		// ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE.
 		// We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
 		var containerElement = document.getElementById("main");
+		var senderElement = document.getElementById("person");
+		var subjectElement = document.getElementById("firstline");
+		var bodyElement = document.getElementById("descrip");
+		var dateElement = document.getElementById("thedate");
+		//dateElement.addEventHandler('click', getRandomDate());
 
-
-		
-		for (var i = 0; i < subject.length; i++) {
-		var theSubject = document.createElement("div");
-		theSubject.className = "subj";
-		theSubject.innerHTML = subject[i];
-		containerElement.appendChild(theSubject);
-		}
 
 		for (var j = 0; j < sender.length; j++) {
-			var theSender = document.createElement("div");
+			var theSender = document.createElement("p");
 			theSender.className = "send";
 			theSender.innerHTML = sender[j];
-			containerElement.appendChild(theSender);
+			senderElement.appendChild(theSender);
+			containerElement.appendChild(senderElement);
 		}
-
+		
+		for (var i = 0; i < subject.length; i++) {
+		var theSubject = document.createElement("p");
+		theSubject.className = "subj";
+		theSubject.innerHTML = subject[i];
+		subjectElement.appendChild(theSubject);
+		containerElement.appendChild(subjectElement);
+		}
+		
+		
 		for (var y = 0; y < body.length; y++) {
-			var theBody = document.createElement("div");
+			var theBody = document.createElement("p");
 			theBody.className = "bod";
 			theBody.innerHTML = body[y];
-			containerElement.appendChild(theBody);
+			bodyElement.appendChild(theBody);
+			containerElement.appendChild(bodyElement);
 		}
-
+		console.log("hello");
+		console.log(getRandomDate());
 		
-
-
 		
 		};
 		</script>
 	</head>
 	<body>
 		<div class="container" id="main">
+		<div id="thedate"></div>
+			<div id="person"></div>
+			<div id="firstline"></div>
+			<div id="descrip"></div>
 		</div>
 	</body>
 </html>
