@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<script src="js/mail-generator.js"></script>
+		<link href="css/style.css" rel="stylesheet" media="screen">
+		<script>
+		window.onload = function(){
+
+		
+
+function generateEmail(messages) {
+
+
+for (var i = 0; i < messages.length; i++) {
+
+    var emailsMessages = messages.length;
+	var sender = messages[i].sender;
+	var subject = messages[i].subject;
+	var date = messages[i].date;
+	var body = messages[i].body;
+	console.log(emailsMessages);
+
+
+	var emailContainer = document.createElement("div");
+	emailContainer.className = "email";
+	document.getElementById("main").appendChild(emailContainer);
+
+//start here for counter div
+	var inboxCounter = document.createElement("div");
+	inboxCounter.className = "counter";
+	inboxCounter.innerHTML = emailsMessages + " messages in your Inbox";
+	emailContainer.appendChild(inboxCounter);
+
+
+
+	var senderElement = document.createElement("div");
+	senderElement.className = "sender";
+	senderElement.innerHTML = sender;
+	emailContainer.appendChild(senderElement);
+
+	var subjectElement = document.createElement("div");
+	subjectElement.className = "subject";
+	subjectElement.innerHTML = subject;
+	emailContainer.appendChild(subjectElement);
+
+	var dateElement = document.createElement("div");
+	dateElement.className = "date";
+	dateElement.innerHTML = date;
+	emailContainer.appendChild(dateElement);
+
+	var bodyElement = document.createElement("div");
+	bodyElement.className = "body";
+	bodyElement.innerHTML = body;
+	emailContainer.appendChild(bodyElement);
+
+    var emailElements = document.getElementsByClassName("email");
+    for (var j = 0; j < emailElements.length; j++) {
+    	emailElements[j].addEventListener("click", showMessage);
+    }
+function showMessage(event) {
+	var showBody = this.querySelectorAll(".body")[0];
+	if(showBody.classList.contains("show") === false) {
+		showBody.classList.add("show");
+	}
+	else{
+		showBody.classList.remove("show");
+	}
+	var counter = emailsMessages.length;
+
+}
+
+
+}
+}
+generateEmail(geemails);
+
+		};	
+
+
+
+		</script>
+	</head>
+	<body><fieldset><h1>Geemail Inbox</h1></fieldset>
+	<div class="counter"></div>
+		<div id="main">
+			
+		</div>
+		
+	</body>
+</html>
