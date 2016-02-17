@@ -1,22 +1,65 @@
-#thedate {
-float: left;
-width: 10%;
+body {
+	width: 90%;
+	margin: 0 auto;
+	background-image: url('../images/mailbox.jpg');
+	opacity: .7;
+	background-attachment: fixed;
 }
 
 
+body.page {
+	background-color: #dedcef;
+	font-family: Helvetica;
+}
 
-#person {
+
+h1 {
+	background-color: black;
+	padding: .25em;
+	color: white;
+	font-size: 2.5em;
+}
+
+.counter {
+	padding-bottom: 1em;
 	font-weight: 900;
-	width: 15%;
-	float: left;
+	font-style: italic;
+	color: red;
 }
 
-#firstline {
-	width: 15%;
-	float: left;
+div.email {
+	font-size: .80em;
+	padding-bottom: 2em;
+	border: 1.5px solid black;
+	border-left: 1.5em;
+	border-right: 1.5em;
 }
 
-#descrip {
-	width: 55%;
-	float: right;
+div.body {
+	display: none;
+	
+}
+
+div.body.display {
+	display: block;
+	background-color: white;
+	margin-top: .5em;	
+}
+
+.sender {
+	font-size: 1.25em;
+	font-weight: 700;
+	padding-bottom: .5em;
+	background-color: white;
+}
+
+.subject {
+	font-weight: 500;
+	padding-bottom: .5em;
+	background-color: white;
+	text-decoration: underline;
+}
+
+.date {
+	background-color: white;
 }

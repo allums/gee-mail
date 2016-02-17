@@ -1,23 +1,24 @@
 <html>
 	<head>
 		<script src="js/mail-generator.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
 		<script>
 		window.onload = function(){
 
 		
 
-function generateEmail(messages) {
+function generateGeeMail(messages) {
 
 
 for (var i = 0; i < messages.length; i++) {
 
-    var emailsMessages = messages.length;
+    var geeMailMessages = messages.length;
 	var sender = messages[i].sender;
 	var subject = messages[i].subject;
 	var date = messages[i].date;
 	var body = messages[i].body;
-	console.log(emailsMessages);
+	//console.log(geeMailMessages);
 
 
 	var emailContainer = document.createElement("div");
@@ -27,28 +28,30 @@ for (var i = 0; i < messages.length; i++) {
 //start here for counter div
 	var inboxCounter = document.createElement("div");
 	inboxCounter.className = "counter";
-	inboxCounter.innerHTML = emailsMessages + " messages in your Inbox";
+	inboxCounter.textContent = "There are " + geeMailMessages + " messages in your Inbox";
 	emailContainer.appendChild(inboxCounter);
-
-
 
 	var senderElement = document.createElement("div");
 	senderElement.className = "sender";
+	senderElement.id = "messageCollection";
 	senderElement.innerHTML = sender;
 	emailContainer.appendChild(senderElement);
 
 	var subjectElement = document.createElement("div");
 	subjectElement.className = "subject";
+	subjectElement.id = "messageCollection";
 	subjectElement.innerHTML = subject;
 	emailContainer.appendChild(subjectElement);
 
 	var dateElement = document.createElement("div");
 	dateElement.className = "date";
+	dateElement.id = "messageCollection";
 	dateElement.innerHTML = date;
 	emailContainer.appendChild(dateElement);
 
 	var bodyElement = document.createElement("div");
 	bodyElement.className = "body";
+	bodyElement.id = "messageCollection";
 	bodyElement.innerHTML = body;
 	emailContainer.appendChild(bodyElement);
 
@@ -57,21 +60,27 @@ for (var i = 0; i < messages.length; i++) {
     	emailElements[j].addEventListener("click", showMessage);
     }
 function showMessage(event) {
-	var showBody = this.querySelectorAll(".body")[0];
-	if(showBody.classList.contains("show") === false) {
-		showBody.classList.add("show");
+	var displayBody = this.querySelectorAll(".body")[0];
+	if(displayBody.classList.contains("display") === false) {
+		displayBody.classList.add("display");
 	}
 	else{
-		showBody.classList.remove("show");
+		displayBody.classList.remove("display");
 	}
-	var counter = emailsMessages.length;
-
-}
-
+// TRYING TO GET JQUERY TO WORK WITH COUNTING HOW MANY ID'S OF MESSAGECOLLECTION FOR COUNTER
+//var mailCounter = $("#messageCollection").length;
 
 }
 }
-generateEmail(geemails);
+}
+generateGeeMail(geemails);
+
+// ATTEMPT AT SETTING INTERVAL
+// var randomMessage = generateMessage(geemails);
+// //var timedMessage = setInterval(randomMessage, 10000);
+// setInterval(randomMessage, 5000);
+
+// console.log(randomMessage);
 
 		};	
 
@@ -79,11 +88,9 @@ generateEmail(geemails);
 
 		</script>
 	</head>
-	<body><fieldset><h1>Geemail Inbox</h1></fieldset>
+	<body class="page"><fieldset><legend><h1>Geemail Inbox</h1></legend>
 	<div class="counter"></div>
-		<div id="main">
-			
-		</div>
-		
+		<div id="main"></div>
+		</fieldset>
 	</body>
 </html>
