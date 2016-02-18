@@ -6,12 +6,19 @@ body {
 	background-attachment: fixed;
 }
 
-
-body.page {
-	background-color: #dedcef;
-	font-family: Helvetica;
+#counting {
+	color: white;
+	margin-bottom: 1em;
 }
 
+#increment {
+    color: red;
+}
+
+body.page {
+	
+	font-family: Helvetica;
+}
 
 h1 {
 	background-color: black;
@@ -43,7 +50,8 @@ div.body {
 div.body.display {
 	display: block;
 	background-color: white;
-	margin-top: .5em;	
+	margin-top: .5em;
+	font-weight: 600;	
 }
 
 .sender {
@@ -63,3 +71,4 @@ div.body.display {
 .date {
 	background-color: white;
 }
+

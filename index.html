@@ -4,53 +4,137 @@
 		<link href="css/style.css" rel="stylesheet" media="screen">
 		<script>
 		window.onload = function(){
-		// ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE.
-		// We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-		var containerElement = document.getElementById("main");
-		var senderElement = document.getElementById("person");
-		var subjectElement = document.getElementById("firstline");
-		var bodyElement = document.getElementById("descrip");
-		var dateElement = document.getElementById("thedate");
-		//dateElement.addEventHandler('click', getRandomDate());
+
+		
+
+function generateGeeMail(messages) {
 
 
-		for (var j = 0; j < sender.length; j++) {
-			var theSender = document.createElement("p");
-			theSender.className = "send";
-			theSender.innerHTML = sender[j];
-			senderElement.appendChild(theSender);
-			containerElement.appendChild(senderElement);
-		}
-		
-		for (var i = 0; i < subject.length; i++) {
-		var theSubject = document.createElement("p");
-		theSubject.className = "subj";
-		theSubject.innerHTML = subject[i];
-		subjectElement.appendChild(theSubject);
-		containerElement.appendChild(subjectElement);
-		}
-		
-		
-		for (var y = 0; y < body.length; y++) {
-			var theBody = document.createElement("p");
-			theBody.className = "bod";
-			theBody.innerHTML = body[y];
-			bodyElement.appendChild(theBody);
-			containerElement.appendChild(bodyElement);
-		}
-		console.log("hello");
-		console.log(getRandomDate());
-		
-		
-		};
-		</script>
+for (var i = 0; i < messages.length; i++) {
+
+    var geeMailMessages = messages.length;
+	var sender = messages[i].sender;
+	var subject = messages[i].subject;
+	var date = messages[i].date;
+	var body = messages[i].body;
+	//console.log(geeMailMessages);
+
+
+	var emailContainer = document.createElement("div");
+	emailContainer.className = "email";
+	document.getElementById("main").appendChild(emailContainer);
+
+//experiment for counting emails
+	// var inboxCounter = document.createElement("div");
+	// inboxCounter.className = "counter";
+	// inboxCounter.textContent = "There are " + geeMailMessages + " messages in your Inbox";
+	// emailContainer.appendChild(inboxCounter);
+
+	var senderElement = document.createElement("div");
+	senderElement.className = "sender";
+	senderElement.id = "messageCollection";
+	senderElement.innerHTML = sender;
+	emailContainer.appendChild(senderElement);
+
+	var subjectElement = document.createElement("div");
+	subjectElement.className = "subject";
+	subjectElement.id = "messageCollection";
+	subjectElement.innerHTML = subject;
+	emailContainer.appendChild(subjectElement);
+
+	var dateElement = document.createElement("div");
+	dateElement.className = "date";
+	dateElement.id = "messageCollection";
+	dateElement.innerHTML = date;
+	emailContainer.appendChild(dateElement);
+
+	var bodyElement = document.createElement("div");
+	bodyElement.className = "body";
+	bodyElement.id = "messageCollection";
+	bodyElement.innerHTML = body;
+	emailContainer.appendChild(bodyElement);
+
+    var emailElements = document.getElementsByClassName("email");
+    for (var j = 0; j < emailElements.length; j++) {
+    	emailElements[j].addEventListener("click", showMessage);
+    }
+function showMessage(event) {
+	var displayBody = this.querySelectorAll(".body")[0];
+	if(displayBody.classList.contains("display") === false) {
+		displayBody.classList.add("display");
+	}
+	else{
+		displayBody.classList.remove("display");
+	}
+}
+}
+}
+generateGeeMail(geemails);
+
+var inboxCount = document.getElementById("increment");
+var howManyEmails = window.geemails.length;
+var completeCount = document.createTextNode(howManyEmails);
+inboxCount.appendChild(completeCount);
+
+
+ setInterval(function() {
+ 	var loadTimed = getNewMessage();
+ 	generateGeeMail(loadTimed);
+ 	geemails.push(loadTimed);
+
+ 	var emailContainer = document.createElement("div");
+	emailContainer.className = "email";
+	document.getElementById("main").appendChild(emailContainer);
+
+ 	var senderElement = document.createElement("div");
+	senderElement.className = "sender";
+	senderElement.id = "messageCollection";
+	senderElement.innerHTML = loadTimed.sender;
+	emailContainer.appendChild(senderElement);
+
+	var subjectElement = document.createElement("div");
+	subjectElement.className = "subject";
+	subjectElement.id = "messageCollection";
+	subjectElement.innerHTML = loadTimed.subject;
+	emailContainer.appendChild(subjectElement);
+
+	var dateElement = document.createElement("div");
+	dateElement.className = "date";
+	dateElement.id = "messageCollection";
+	dateElement.innerHTML = loadTimed.date;
+	emailContainer.appendChild(dateElement);
+
+	var bodyElement = document.createElement("div");
+	bodyElement.className = "body";
+	bodyElement.id = "messageCollection";
+	bodyElement.innerHTML = loadTimed.body;
+	emailContainer.appendChild(bodyElement);
+
+    var emailElements = document.getElementsByClassName("email");
+    for (var j = 0; j < emailElements.length; j++) {
+    	emailElements[j].addEventListener("click", showMessage);
+    }
+
+function showMessage(event) {
+	var displayBody = this.querySelectorAll(".body")[0];
+	if(displayBody.classList.contains("display") === false) {
+		displayBody.classList.add("display");
+	}
+	else{
+		displayBody.classList.remove("display");
+	}
+}
+	howManyEmails++;
+	increment.innerHTML = howManyEmails;
+
+ }, 15000);
+
+};
+</script>
 	</head>
-	<body>
-		<div class="container" id="main">
-		<div id="thedate"></div>
-			<div id="person"></div>
-			<div id="firstline"></div>
-			<div id="descrip"></div>
-		</div>
+	<body class="page"><fieldset><legend><h1>Geemail Inbox</h1></legend>
+	<div id="counting">Inbox Messages: <span id="increment"></span></div>
+		<div id="main"></div>
+		</fieldset>
 	</body>
 </html>
